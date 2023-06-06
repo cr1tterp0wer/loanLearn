@@ -30,8 +30,6 @@ def sanitize_approval(x):
     return x
 
 def cleanup(df):
-    df.copy
-
     # Remove Null values from columns
     df.dropna(subset=['Name', 'City', 'State', 'BankState', 'NewExist', 'RevLineCr', 'LowDoc', 'DisbursementDate', 'MIS_Status'], inplace=True)
 
@@ -134,15 +132,17 @@ def cleanup(df):
     df['AppvDisbursed'] = np.where(df['DisbursementGross'] == df['GrAppv'], 1, 0)
 
     df = df.astype({'IsFranchise': 'int64', 'NewBusiness': 'int64'})
+    return df;
 
 # Remove deprecated attributes
 def remove_unused(df):
     df.drop(columns=['LoanNr_ChkDgt', 'Name', 'City', 'Zip', 'Bank', 'NAICS', 'ApprovalDate', 'NewExist', 'FranchiseCode',
         'ChgOffDate', 'DisbursementDate', 'BalanceGross', 'ChgOffPrinGr', 'SBA_Appv', 'MIS_Status'], inplace=True)
+    return df;
 
 
 # Great Recession (2007-2009) Impact
-def enhance_greate_depression(df):
+def enhance_great_depression(df):
     df['RealEstate'] = np.where(df['Term'] >= 240, 1, 0)
 
     # Generate col for Great Recession
@@ -159,3 +159,4 @@ def enhance_greate_depression(df):
 
     # Remove records with loans disbursed prior to being approved
     df = df[df['DaysToDisbursement'] >= 0]
+    return df;

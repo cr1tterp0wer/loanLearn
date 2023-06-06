@@ -1,0 +1,184 @@
+[[-1.03141511 -0.14754027 -0.10043545 ... -0.18466019 -0.03071837
+  -0.28654813]
+ [-1.03141511 -0.49767419 -0.13509809 ... -0.18466019 -0.03071837
+  -0.28654813]
+ [-1.03141511  1.25299541 -0.04844149 ... -0.18466019 -0.03071837
+  -0.28654813]
+ ...
+ [-1.03141511 -0.84780812  0.52349208 ... -0.18466019 -0.03071837
+  -0.28654813]
+ [-1.03141511 -0.49767419 -0.06577281 ... -0.18466019 -0.03071837
+  -0.28654813]
+ [-1.03141511  0.20259365  0.28085359 ... -0.18466019 -0.03071837
+  -0.28654813]]
+XGB Classifier Model
+              precision    recall  f1-score   support
+
+           0      0.969     0.974     0.972     85257
+           1      0.908     0.890     0.899     24266
+
+    accuracy                          0.956    109523
+   macro avg      0.939     0.932     0.935    109523
+weighted avg      0.956     0.956     0.956    109523
+
+Feature Importance
+ApprovalFY = 0.047159124
+AppvDisbursed = 0.016602855
+BankState_AK = 0.0
+BankState_AL = 0.005272216
+BankState_AR = 0.0046870117
+BankState_AZ = 0.0013953542
+BankState_CA = 0.032633845
+BankState_CO = 0.0010959033
+BankState_CT = 0.0041858777
+BankState_DC = 0.0003551429
+BankState_DE = 0.025623366
+BankState_FL = 0.012132745
+BankState_GA = 0.0062973034
+BankState_GU = 0.0
+BankState_HI = 0.0029516944
+BankState_IA = 0.0029352203
+BankState_ID = 0.0023658623
+BankState_IL = 0.014454617
+BankState_IN = 0.005690615
+BankState_KS = 0.0022632934
+BankState_KY = 0.0
+BankState_LA = 0.002787376
+BankState_MA = 0.0008254349
+BankState_MD = 0.0070748446
+BankState_ME = 0.00020199566
+BankState_MI = 0.0021519172
+BankState_MN = 0.0043781735
+BankState_MO = 0.0024286336
+BankState_MS = 0.007399255
+BankState_MT = 0.010032091
+BankState_NC = 0.05686961
+BankState_ND = 0.0020767013
+BankState_NE = 0.0021467723
+BankState_NH = 0.0
+BankState_NJ = 0.0026641106
+BankState_NM = 0.0021702473
+BankState_NV = 0.00097531127
+BankState_NY = 0.004335816
+BankState_OH = 0.011383291
+BankState_OK = 0.0035124961
+BankState_OR = 0.010537466
+BankState_PA = 0.023980184
+BankState_PR = 0.0
+BankState_RI = 0.0070405737
+BankState_SC = 0.004465372
+BankState_SD = 0.0035427045
+BankState_TN = 0.0027633344
+BankState_TX = 0.00465406
+BankState_UT = 0.00486958
+BankState_VA = 0.035075862
+BankState_VT = 0.0070935995
+BankState_WA = 0.00076249364
+BankState_WI = 0.001348282
+BankState_WV = 0.0011827139
+BankState_WY = 0.004474689
+CreateJob = 0.0015871894
+DaysToDisbursement = 0.0049165054
+DisbursedGreaterAppv = 0.012806189
+DisbursementFY = 0.014625928
+DisbursementGross = 0.0037572195
+GrAppv = 0.007862315
+GreatRecession = 0.014514025
+Industry_Accom/Food_serv = 0.0050782952
+Industry_Admin_sup/Waste_Mgmt_Rem = 0.0010162669
+Industry_Ag/For/Fish/Hunt = 0.0060107834
+Industry_Arts/Entertain/Rec = 0.0020133606
+Industry_Construction = 0.0018006046
+Industry_Educational = 0.0021786003
+Industry_Finance/Insurance = 0.0020198133
+Industry_Healthcare/Social_assist = 0.012833173
+Industry_Information = 0.0015942414
+Industry_Manufacturing = 0.001895842
+Industry_Mgmt_comp = 0.0
+Industry_Min/Quar/Oil_Gas_ext = 0.003045592
+Industry_Other_no_pub = 0.0022456015
+Industry_Prof/Science/Tech = 0.0043701474
+Industry_Public_Admin = 0.0
+Industry_RE/Rental/Lease = 0.0021824948
+Industry_Retail_trade = 0.0038884422
+Industry_Trans/Ware = 0.002013755
+Industry_Utilities = 0.0
+Industry_Wholesale_trade = 0.0019582994
+IsFranchise = 0.0012774864
+LowDoc = 0.006086774
+NewBusiness = 0.004409136
+NoEmp = 0.0025223866
+RealEstate = 0.0
+RetainedJob = 0.00197564
+RevLineCr = 0.016678706
+SBA_AppvPct = 0.018748304
+StateSame = 0.059109982
+State_AK = 0.0019802558
+State_AL = 0.0013308757
+State_AR = 0.0036840697
+State_AZ = 0.0033130378
+State_CA = 0.022245493
+State_CO = 0.003071362
+State_CT = 0.0016169479
+State_DC = 0.0032884523
+State_DE = 0.0
+State_FL = 0.0065641035
+State_GA = 0.006366926
+State_HI = 0.0
+State_IA = 0.0020531688
+State_ID = 0.0010810704
+State_IL = 0.007004915
+State_IN = 0.0010872851
+State_KS = 0.0013063597
+State_KY = 0.0015614948
+State_LA = 0.0020216194
+State_MA = 0.0022908694
+State_MD = 0.002799231
+State_ME = 0.00490345
+State_MI = 0.005788749
+State_MN = 0.0042742584
+State_MO = 0.0
+State_MS = 0.0035729383
+State_MT = 0.008216945
+State_NC = 0.002052758
+State_ND = 0.005717262
+State_NE = 0.0030008187
+State_NH = 0.0029502471
+State_NJ = 0.0027777075
+State_NM = 0.0
+State_NV = 0.0058045676
+State_NY = 0.004708984
+State_OH = 0.0050670537
+State_OK = 0.0036834164
+State_OR = 0.0018556027
+State_PA = 0.008362443
+State_RI = 0.001356551
+State_SC = 0.0026123826
+State_SD = 0.0
+State_TN = 0.0048465272
+State_TX = 0.0024669848
+State_UT = 0.0221864
+State_VA = 0.0020635524
+State_VT = 0.0061048823
+State_WA = 0.002781696
+State_WI = 0.001725695
+State_WV = 0.0
+State_WY = 0.0037506456
+Term = 0.09686806
+UrbanRural_0 = 0.022478255
+UrbanRural_1 = 0.03086186
+UrbanRural_2 = 0.0021616777
+       State BankState  ...  GreatRecession  DisbursedGreaterAppv
+0         IN        OH  ...               0                     0
+1         IN        IN  ...               0                     0
+2         IN        IN  ...               1                     0
+5         CT        DE  ...               1                     0
+7         FL        AL  ...               0                     0
+...      ...       ...  ...             ...                   ...
+899145    MD        CA  ...               0                     0
+899146    CA        CA  ...               1                     0
+899157    CA        CA  ...               0                     0
+899160    OH        IL  ...               0                     0
+899161    CA        CA  ...               0                     0
+
+[438090 rows x 24 columns]

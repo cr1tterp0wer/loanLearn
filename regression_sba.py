@@ -12,11 +12,23 @@
 # @params 1: class_1: Default = 1
 
 import pandas as pd
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.feature_selection import SelectKBest
+from sklearn.linear_model import SGDRegressor
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+
+# List the importance of each feature
+def regression_feature_importance(X, xgboost):
+    print("Feature Importance")
+    for name, importance in sorted(zip(X.columns, xgboost.feature_importances_)):
+        print(name, "=", importance)
 
 # LOGISTICAL REGRESSION MODEL
 def logistical_regression(df):
-
-
     # Use ONE-HOT encoding for data attributes
     df = pd.get_dummies(df)
     print(df.head())
@@ -71,8 +83,23 @@ def xgboost_regression(df):
     print("XGB Classifier Model")
     print(classification_report(y_val, y_xgbpred, digits=3))
 
-# List the importance of each feature
-def regression_feature_importance(X, xgboost):
-    print("Feature Importance")
-    for name, importance in sorted(zip(X.columns, xgboost.feature_importances_)):
-        print(name, "=", importance)
+def xgboost_regression_importance(df):
+    df = pd.get_dummies(df)
+    y = df['Default']
+    X = df.drop('Default', axis=1)
+
+    scale = StandardScaler()
+    X_scaled = scale.fit_transform(X)
+    print(X_scaled)
+    X_train, X_val, y_train, y_val = train_test_split(X_scaled, y, test_size=0.25)
+
+    xgboost = XGBClassifier(random_state=2)
+
+    # Create our Trees
+    xgboost.fit(X_train, y_train)
+    y_xgbpred = xgboost.predict(X_val)
+
+    # Print the results
+    print("XGB Classifier Model")
+    print(classification_report(y_val, y_xgbpred, digits=3))
+    regression_feature_importance(X, xgboost);

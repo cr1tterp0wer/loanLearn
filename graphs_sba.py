@@ -10,14 +10,15 @@ import seaborn as sns
 # Correlation Matrix
 def corr_matrix(df):
     cor_fig, cor_ax = plt.subplots(figsize=(15, 10))
-    corr_matrix = df.corr(numeric_only=True)
+#    corr_matrix = df.corr(numeric_only=True)
+    corr_matrix = df.corr()
     cor_ax = sns.heatmap(corr_matrix, annot=True)
     plt.xticks(rotation=30, horizontalalignment='right', fontsize=8)
     plt.yticks(fontsize=8)
     plt.show()
 
 # Total/Average disbursed loan amt by industry
-def avg_amt_by_industry(df, plt):
+def avg_amt_by_industry(df):
     industry_group = df.groupby(['Industry'])
     df_industrySum = industry_group.sum(numeric_only=True).sort_values('DisbursementGross', ascending=False)
     df_industryAve = industry_group.mean(numeric_only=True).sort_values('DisbursementGross', ascending=False)
@@ -44,8 +45,10 @@ def avg_amt_by_industry(df, plt):
 
 
 # Average days to disbursement by Industry
-def avg_dispersement_delay(df, plt):
+def avg_dispersement_delay(df):
     fig2, ax = plt.subplots(figsize=(15,5))
+    industry_group = df.groupby(['Industry'])
+    df_industryAve = industry_group.mean(numeric_only=True).sort_values('DisbursementGross', ascending=False)
 
     ax.bar(df_industryAve.index, df_industryAve['DaysToDisbursement'].sort_values(ascending=False))
     ax.set_xticklabels(df_industryAve['DaysToDisbursement'].sort_values(ascending=False).index, rotation=35, horizontalalignment='right', fontsize=10)
@@ -65,7 +68,7 @@ def stacked_setup(df, col, axes, stack_col='Default'):
     axes.bar(data.index, data[0], bottom=data[1], label='Paid in full')
 
 # Number of PIF/Defaulted Loans by Industry from 1984-2010
-def total_loan_resolutions(df, plt):
+def total_loan_resolutions(df):
     fig3 = plt.figure(figsize=(15, 10))
     ax1a = plt.subplot(2,1,1)
     ax2a = plt.subplot(2,1,2)
@@ -92,7 +95,7 @@ def total_loan_resolutions(df, plt):
     plt.show()
 
 # Paid in full and Defaulted loans by DisbursementFY
-def pif_vs_defaulted_by_disbursementFY(df, plt):
+def pif_vs_defaulted_by_disbursementFY(df):
     fig4, ax4 = plt.subplots(figsize=(15, 5))
     stack_data = df.groupby(['DisbursementFY', 'Default'])['DisbursementFY'].count().unstack('Default')
     x = stack_data.index
@@ -102,9 +105,10 @@ def pif_vs_defaulted_by_disbursementFY(df, plt):
     ax4.set_xlabel('Disbursement Year')
     ax4.set_ylabel('Number of PIF/Defaulted Loans')
     ax4.legend(loc='upper left')
+    plt.show()
 
 # Paid in full and defaulted loans backed by Real Estate
-def pif_vs_defaulted_by_real_estate(df, plt):
+def pif_vs_defaulted_by_real_estate(df):
     fig5 = plt.figure(figsize=(20, 10))
     ax1b = fig5.add_subplot(1, 2, 1)
     ax2b = fig5.add_subplot(1, 2, 2)
@@ -118,8 +122,7 @@ def pif_vs_defaulted_by_real_estate(df, plt):
     ax1b.set_ylabel('Number of Loans')
     ax1b.legend()
 
-    # Paid in full and defaulted loans active during the Great Recession
-def pif_vs_defaulted_recession(df, plt):
+    fig5 = plt.figure(figsize=(20, 10))
     stacked_setup(df=df, col='GreatRecession', axes=ax2b)
     ax2b.set_xticks(df.groupby(['GreatRecession', 'Default'])['GreatRecession'].count().unstack('Default').index)
     ax2b.set_xticklabels(labels=['No', 'Yes'])
@@ -127,6 +130,7 @@ def pif_vs_defaulted_recession(df, plt):
     ax2b.set_xlabel('Loan Active during Great Recession')
     ax2b.set_ylabel('Number of Loans')
     ax2b.legend()
+    plt.show()
 
 # Default percentage by Industry
 def industry_ratio(df):
